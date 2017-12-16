@@ -78,7 +78,7 @@ TEST_FILES = $*(ROOT).css-embedded.html
         opt += -a toc -a toclevels=2 -a scriptsdir=../javascripts
     :sys $ASCIIDOC $opt -b xhtml11 -a linkcss -a icons -a stylesdir=../stylesheets -o $target $(source[0])
     @if _no.XMLLINT:
-        :sys $XMLLINT --nonet --noout --valid $target
+        :sys $XMLLINT --nonet --noout  $target
     @else:
         :print WARNING: xmllint(1) unavailable: skipping validation
 
@@ -91,7 +91,7 @@ TEST_FILES = $*(ROOT).css-embedded.html
         opt += -a toc -a toclevels=2
     :sys $ASCIIDOC -b xhtml11 $opt -o $target $(source[0])
     @if _no.XMLLINT:
-        :sys $XMLLINT --nonet --noout --valid $target
+        :sys $XMLLINT --nonet --noout  $target
     @else:
         :print WARNING: xmllint(1) unavailable: skipping validation
 
@@ -105,7 +105,7 @@ TEST_FILES = $*(ROOT).css-embedded.html
         opt += -d book
     :sys $ASCIIDOC $opt -b docbook $(source[0])
     @if _no.XMLLINT:
-        :sys $XMLLINT --nonet --noout --valid $target
+        :sys $XMLLINT --nonet --noout  $target
     @else:
         :print WARNING: xmllint(1) unavailable: skipping validation
 
@@ -169,7 +169,7 @@ article-html5-toc2.html: article.txt
 asciidoc.1.html: asciidoc.1.txt
     :sys $ASCIIDOC -d manpage -b html4 $source
     @if _no.XMLLINT:
-        :sys $XMLLINT --nonet --noout --valid --html $target
+        :sys $XMLLINT --nonet --noout  --html $target
     @else:
         :print WARNING: xmllint(1) unavailable: skipping validation
 
